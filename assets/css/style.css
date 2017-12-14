@@ -1,7 +1,31 @@
-.crystals img {
-	max-height:200px;
+body {
+	background: url(https://images.designtrends.com/wp-content/uploads/2015/12/10062601/Space-Backgrounds4.jpg) no-repeat;
 }
 
 div {
 	max-width: 570px;
+	margin:0 auto;
+}
+
+h1 {
+	font-family: 'VT323', monospace;
+	font-size: 100px;
+	color:#fff;
+}
+
+p {
+	font-family: 'VT323', monospace;
+	font-size: 20px;
+	color:#fff;
+	margin:7px;
+}
+
+.crystals img {
+	max-height:200px;
+}
+
+.random-number, .current-score{
+	font-family: 'VT323', monospace;
+	font-size: 40px;
+	color:#fff;
 }
