@@ -1,33 +1,69 @@
 // Declaring Key Variables
 //============================================================
-var gemNumber = undefined;
+var gemNumber = [];
 var randomNumber = undefined;
-
-
-
-
-
-
-
+var currentScore = 0;
 
 // Defining Functions
 // ===========================================================
-//generate a random number between 1-12
-function generateNumber () {
-	gemNumber = Math.floor(Math.random()*12) + 1;
+//generate 4 random numbers between 1-12, push to gemArray
+function generateNumber() {
+	for (i=0;i<4;i++) {
+	newNumber = Math.floor(Math.random()*12) + 1;
+	gemNumber.push(newNumber);
+	}
 	console.log(gemNumber);
 }
-generateNumber();
 
-// generate a randomg number between 19-120
+// generate a random number between 19-120
 // ===========================================================
-function generateNumber2 () {
+function generateNumber2() {
 	randomNumber = Math.floor(Math.random()*100) + 21;
+	$(".random-number").text(randomNumber);
 	console.log(randomNumber);
 }
-generateNumber2();
 
+function reset() {
+	gemNumber = [];
+	randomNumber = undefined;
+	currentScore = 0;
+	generateNumber();
+	generateNumber2();
+	$(".current-score").text(currentScore);
+}
+reset();
 
+function game() {
+	$(".current-score").text(currentScore);
+	console.log(currentScore);
+	if (currentScore === randomNumber) {
+		alert("You Win!");
+		reset();
+	} 
+	else if (currentScore > randomNumber) {
+		alert("You Lose!");
+		reset();
+	}
+}
 
+// On Click Events
+// ===========================================================
+$(".one").click(function() {
+	currentScore = currentScore + gemNumber[0];
+	game();
+	});
 
+$(".two").click(function() {
+	currentScore = currentScore + gemNumber[1];
+	game();
+	});
 
+$(".three").click(function() {
+	currentScore = currentScore + gemNumber[2];
+	game();
+	});
+
+$(".four").click(function() {
+	currentScore = currentScore + gemNumber[3];
+	game();
+	});
